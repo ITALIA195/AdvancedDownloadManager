@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="AdvancedDownloadManager.DownloadEntry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:AdvancedDownloadManager"
+             mc:Ignorable="d" 
+             d:DesignWidth="520" d:DesignHeight="80">
+    <Grid>
+		<Rectangle Fill="{StaticResource downloadBackgroundColor}" Width="520" Height="80"></Rectangle>
+		<Label Margin="15  5 0 0" FontSize="13" FontFamily="Segoe UI" Foreground="{StaticResource textColor}" FontWeight="Bold" 
+		       Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FileName}" />
+		<Label Margin="15 22 0 0" FontSize="12" FontFamily="Segoe UI" Foreground="{StaticResource textColor}" Content="test"/>
+	    <Label Margin="15 54 0 0" FontSize="12" FontFamily="Segoe UI" Foreground="{StaticResource linkColor}">Open in Explorer</Label>
+
+
+	    <Viewbox Width="18" Height="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 10 10">
+		    <Path Data="{StaticResource cancelButton}" Fill="{StaticResource buttonColor}"/>
+	    </Viewbox>
+	</Grid>
+</UserControl>

@@ -1,0 +1,62 @@
+﻿<Application x:Class="AdvancedDownloadManager.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AdvancedDownloadManager"
+             StartupUri="MainWindow.xaml">
+	<Application.Resources>
+		<Geometry x:Key="cancelButton">M131.804,106.491l75.936-75.936c6.99-6.99,6.99-18.323,0-25.312c-6.99-6.99-18.322-6.99-25.312,0l-75.937,75.937L30.554,5.242c-6.99-6.99-18.322-6.99-25.312,0c-6.989,6.99-6.989,18.323,0,25.312l75.937,75.936L5.242,182.427c-6.989,6.99-6.989,18.323,0,25.312c6.99,6.99,18.322,6.99,25.312,0l75.937-75.937l75.937,75.937c6.989,6.99,18.322,6.99,25.312,0c6.99-6.99,6.99-18.322,0-25.312L131.804,106.491z</Geometry>
+		<Rectangle x:Key="rect" Fill="Red"></Rectangle>
+		
+		<SolidColorBrush x:Key="buttonColor">
+			<SolidColorBrush.Color>
+				<Color R="132" G="132" B="132" A="76"></Color>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		<SolidColorBrush x:Key="topRectangle">
+			<SolidColorBrush.Color>
+				<Color R="120" G="250" B="255" A="255"></Color>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		<SolidColorBrush x:Key="downloadBackgroundColor">
+			<SolidColorBrush.Color>
+				<Color R="255" G="255" B="255" A="255"></Color>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		<SolidColorBrush x:Key="windowBackgroundColor">
+			<SolidColorBrush.Color>
+				<Color R="245" G="245" B="245" A="255"></Color>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		<SolidColorBrush x:Key="textColor">
+			<SolidColorBrush.Color>
+				<Color R="112" G="122" B="122" A="255"></Color>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		<SolidColorBrush x:Key="linkColor">
+			<SolidColorBrush.Color>
+				<Color R="51" G="103" B="214" A="255"></Color>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+
+		<Rectangle x:Key="test">
+			<Rectangle.Fill>
+				<VisualBrush>
+<!--					<Path Fill="{StaticResource buttonColor}" Stretch="Fill" Data="M164.453,0H18.276C13.324,0,9.041,1.807,5.425,5.424C1.808,9.04,0.001,13.322,0.001,18.271v401.991c0,4.948,1.807,9.233,5.424,12.847c3.619,3.617,7.902,5.428,12.851,5.428h146.181c4.949,0,9.231-1.811,12.847-5.428c3.617-3.613,5.424-7.898,5.424-12.847V18.271c0-4.952-1.807-9.231-5.428-12.847C173.685,1.807,169.402,0,164.453,0z"></Path>-->
+<!--				<Path Fill="{StaticResource buttonColor}" Stretch="Fill" Data="M433.113,5.424C429.496,1.807,425.215,0,420.267,0H274.086c-4.949,0-9.237,1.807-12.847,5.424c-3.621,3.615-5.432,7.898-5.432,12.847v401.991c0,4.948,1.811,9.233,5.432,12.847c3.609,3.617,7.897,5.428,12.847,5.428h146.181c4.948,0,9.229-1.811,12.847-5.428c3.614-3.613,5.421-7.898,5.421-12.847V18.271C438.534,13.319,436.73,9.04,433.113,5.424z"></Path>-->
+				</VisualBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+		<ControlTemplate x:Key="play">
+			<Canvas Width="18" Height="18">
+				<Path Fill="{StaticResource buttonColor}" Stretch="Fill" Data="M203.791,99.628L49.307,2.294c-4.567-2.719-10.238-2.266-14.521-2.266c-17.132,0-17.056,13.227-17.056,16.578v198.94c0,2.833-0.075,16.579,17.056,16.579c4.283,0,9.955,0.451,14.521-2.267l154.483-97.333c12.68-7.545,10.489-16.449,10.489-16.449S216.471,107.172,203.791,99.628z"></Path>
+			</Canvas>
+		</ControlTemplate>
+	</Application.Resources>
+</Application>
+
+
+
+
+
+
+
