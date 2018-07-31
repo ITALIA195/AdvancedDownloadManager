@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Automation;
 using System.Windows.Documents;
@@ -14,14 +15,12 @@ namespace AdvancedDownloadManager
     // ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
     public class Downloader : INotifyPropertyChanged
     {
+        private const string DownloadingSuffix = ".downloading";
         private const int BufferSize = 1024 * 5;
         private readonly FileProperties _file;
         
         private double _progress;
         private DownloadState _state;
-        
-        private long _receivedBytes;
-        private long _totalBytes;
         
         public Downloader(FileProperties file)
         {
@@ -42,40 +41,46 @@ namespace AdvancedDownloadManager
         public void Cancel()
         {
             State = DownloadState.Stopped;
-//            if (File.Exists(Path.Combine(_file.Path, _file.FileName + ".downloading")))
-//                File.Delete(Path.Combine(_file.Path, _file.FileName + ".downloading"));
-            _receivedBytes = 0;
-            _totalBytes = -1;
             
         }
 
-        public Task Resume()
+        public void Resume()
         {
-            return Start();
+            State = DownloadState.Running;
+        }
+
+        private static bool GetRange(string file, out long range)
+        {
+            range = 0;
+            if (!File.Exists(file)) 
+                return false;
+
+            try
+            {
+                var fileInfo = new FileInfo(file);
+                range = fileInfo.Length;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         
         private async Task Download()
         {
             var file = Path.Combine(_file.Path, _file.FileName);
-            if (_receivedBytes <= 0 && File.Exists(file + ".downloading"))
-            {
-                var fileInfo = new FileInfo(file + ".downloading");
-                _receivedBytes = fileInfo.Length; // Resume download from where it was left
-            }
             
             var request = (HttpWebRequest) WebRequest.Create(_file.DownloadUri);
             request.Method = "GET";
             request.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)";
-            if (_receivedBytes > 0)
-                request.AddRange(_receivedBytes);
+            if (GetRange(file + DownloadingSuffix, out long range))
+                request.AddRange(range);
 
 
             using (var response = (HttpWebResponse) await request.GetResponseAsync())
             {
-                Console.WriteLine("Server response: " + response.StatusCode);
-                if (response.StatusCode != HttpStatusCode.PartialContent)
-                    _receivedBytes = 0;
-                _totalBytes = response.ContentLength;
+                Console.WriteLine("HTTP " + (int) response.StatusCode);
                 using (var stream = response.GetResponseStream())
                 {
                     if (stream == null)
@@ -84,18 +89,22 @@ namespace AdvancedDownloadManager
                         throw new InvalidOperationException();
                     }
                     
-                    using (var fs = new FileStream(file + ".downloading", FileMode.Append, FileAccess.Write, FileShare.Read))
+                    using (var fs = new FileStream(file + DownloadingSuffix, FileMode.Append, FileAccess.Write, FileShare.Read))
                     {
                         State = DownloadState.Running;
                         
                         var buffer = new byte[BufferSize];
+
                         int bytesRead;
-                        
-                        while (State == DownloadState.Running && (bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                        long receivedBytes = 0;
+                        long totalBytes = response.ContentLength;
+                        while ((State == DownloadState.Running || State == DownloadState.Paused) && (bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
                         {
+                            while (State == DownloadState.Paused)
+                                Thread.Sleep(1000);
                             await fs.WriteAsync(buffer, 0, bytesRead);
-                            _receivedBytes += bytesRead;
-                            Progress = (double) _receivedBytes / _totalBytes * 100;
+                            receivedBytes += bytesRead;
+                            Progress = (double) (receivedBytes + range) / (totalBytes + range) * 100;
                         }
 
                         await fs.FlushAsync();
@@ -104,7 +113,7 @@ namespace AdvancedDownloadManager
                 }
             }
 
-            if (!File.Exists(file + ".downloading"))
+            if (!File.Exists(file + DownloadingSuffix))
             {
                 State = DownloadState.Failed;
             }
@@ -112,7 +121,7 @@ namespace AdvancedDownloadManager
             {
                 if (!File.Exists(file))
                 {
-                    File.Move(file + ".downloading", file);
+                    File.Move(file + DownloadingSuffix, file);
                 }
                 else
                 {
@@ -123,7 +132,7 @@ namespace AdvancedDownloadManager
                     while (File.Exists($"{newPosition} ({i}){extension}"))
                         i++;
                     
-                    File.Move(file + ".downloading", $"{newPosition} ({i}){extension}");
+                    File.Move(file + DownloadingSuffix, $"{newPosition} ({i}){extension}");
                 }
 
                 State = DownloadState.Completed;
