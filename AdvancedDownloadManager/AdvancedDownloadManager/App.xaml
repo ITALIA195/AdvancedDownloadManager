@@ -4,53 +4,178 @@
              xmlns:local="clr-namespace:AdvancedDownloadManager"
              StartupUri="MainWindow.xaml">
 	<Application.Resources>
-		<Geometry x:Key="cancelButton">M131.804,106.491l75.936-75.936c6.99-6.99,6.99-18.323,0-25.312c-6.99-6.99-18.322-6.99-25.312,0l-75.937,75.937L30.554,5.242c-6.99-6.99-18.322-6.99-25.312,0c-6.989,6.99-6.989,18.323,0,25.312l75.937,75.936L5.242,182.427c-6.989,6.99-6.989,18.323,0,25.312c6.99,6.99,18.322,6.99,25.312,0l75.937-75.937l75.937,75.937c6.989,6.99,18.322,6.99,25.312,0c6.99-6.99,6.99-18.322,0-25.312L131.804,106.491z</Geometry>
-		<Rectangle x:Key="rect" Fill="Red"></Rectangle>
-		
 		<SolidColorBrush x:Key="buttonColor">
 			<SolidColorBrush.Color>
-				<Color R="132" G="132" B="132" A="76"></Color>
+				<Color R="132" G="132" B="132" A="76"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
 		<SolidColorBrush x:Key="topRectangle">
 			<SolidColorBrush.Color>
-				<Color R="120" G="250" B="255" A="255"></Color>
+				<Color R="120" G="250" B="255" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
 		<SolidColorBrush x:Key="downloadBackgroundColor">
 			<SolidColorBrush.Color>
-				<Color R="255" G="255" B="255" A="255"></Color>
+				<Color R="255" G="255" B="255" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
 		<SolidColorBrush x:Key="windowBackgroundColor">
 			<SolidColorBrush.Color>
-				<Color R="245" G="245" B="245" A="255"></Color>
+				<Color R="245" G="245" B="245" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
 		<SolidColorBrush x:Key="textColor">
 			<SolidColorBrush.Color>
-				<Color R="112" G="122" B="122" A="255"></Color>
+				<Color R="112" G="122" B="122" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
 		<SolidColorBrush x:Key="linkColor">
 			<SolidColorBrush.Color>
-				<Color R="51" G="103" B="214" A="255"></Color>
+				<Color R="116" G="181" B="255" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-
-		<Rectangle x:Key="test">
-			<Rectangle.Fill>
-				<VisualBrush>
-<!--					<Path Fill="{StaticResource buttonColor}" Stretch="Fill" Data="M164.453,0H18.276C13.324,0,9.041,1.807,5.425,5.424C1.808,9.04,0.001,13.322,0.001,18.271v401.991c0,4.948,1.807,9.233,5.424,12.847c3.619,3.617,7.902,5.428,12.851,5.428h146.181c4.949,0,9.231-1.811,12.847-5.428c3.617-3.613,5.424-7.898,5.424-12.847V18.271c0-4.952-1.807-9.231-5.428-12.847C173.685,1.807,169.402,0,164.453,0z"></Path>-->
-<!--				<Path Fill="{StaticResource buttonColor}" Stretch="Fill" Data="M433.113,5.424C429.496,1.807,425.215,0,420.267,0H274.086c-4.949,0-9.237,1.807-12.847,5.424c-3.621,3.615-5.432,7.898-5.432,12.847v401.991c0,4.948,1.811,9.233,5.432,12.847c3.609,3.617,7.897,5.428,12.847,5.428h146.181c4.948,0,9.229-1.811,12.847-5.428c3.614-3.613,5.421-7.898,5.421-12.847V18.271C438.534,13.319,436.73,9.04,433.113,5.424z"></Path>-->
-				</VisualBrush>
-			</Rectangle.Fill>
-		</Rectangle>
-		<ControlTemplate x:Key="play">
-			<Canvas Width="18" Height="18">
-				<Path Fill="{StaticResource buttonColor}" Stretch="Fill" Data="M203.791,99.628L49.307,2.294c-4.567-2.719-10.238-2.266-14.521-2.266c-17.132,0-17.056,13.227-17.056,16.578v198.94c0,2.833-0.075,16.579,17.056,16.579c4.283,0,9.955,0.451,14.521-2.267l154.483-97.333c12.68-7.545,10.489-16.449,10.489-16.449S216.471,107.172,203.791,99.628z"></Path>
-			</Canvas>
-		</ControlTemplate>
+		<SolidColorBrush x:Key="downloadInfo">
+			<SolidColorBrush.Color>
+				<Color R="0" G="0" B="0" A="255"/>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		<SolidColorBrush x:Key="borderColor">
+			<SolidColorBrush.Color>
+				<Color R="122" G="122" B="122" A="100"/>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		<SolidColorBrush x:Key="progressBarColor">
+			<SolidColorBrush.Color>
+				<Color R="0" G="255" B="0" A="255"/>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		<SolidColorBrush x:Key="leftBarBackgroundColor">
+			<SolidColorBrush.Color>
+				<Color R="255" G="255" B="255" A="255"/>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
+		
+		<Style TargetType="{x:Type ProgressBar}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ProgressBar}">
+						<Grid Height="5" MinWidth="50" Background="{TemplateBinding Background}">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualState x:Name="Determinate" />
+									<VisualState x:Name="Indeterminate">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Duration="00:00:00"
+																		   Storyboard.TargetName="PART_Indicator"
+																		   Storyboard.TargetProperty="Background">
+												<DiscreteObjectKeyFrame KeyTime="00:00:00">
+													<DiscreteObjectKeyFrame.Value>
+														<SolidColorBrush>Transparent</SolidColorBrush>
+													</DiscreteObjectKeyFrame.Value>
+												</DiscreteObjectKeyFrame>
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Border x:Name="PART_Track" CornerRadius="4" BorderThickness="1"
+									BorderBrush="{StaticResource borderColor}">
+							</Border>
+						   <Border BorderThickness="1"
+								  x:Name="PART_Indicator"
+								  HorizontalAlignment="Left"
+								  Background="{StaticResource progressBarColor}"
+								  BorderBrush="{StaticResource progressBarColor}"
+								  Margin="0,0,0,0">
+								<Border.Style>
+									 <Style TargetType="Border">
+										  <Setter Property="CornerRadius" Value="4,0,0,4"/>
+										<Style.Triggers>
+										  <DataTrigger Binding="{Binding Path=Value, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ProgressBar}}}" Value="100">
+											 <Setter Property="CornerRadius" Value="4"/>
+										   </DataTrigger>
+										 </Style.Triggers>
+									   </Style>
+								</Border.Style>
+							</Border>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Background" Value="Transparent" />
+			<Setter Property="Foreground" Value="{StaticResource borderColor}" />
+		</Style>
+		<Style x:Key="{x:Type Label}"
+		       TargetType="{x:Type Label}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Label}">
+						<Border Background="{TemplateBinding Background}"
+						        BorderThickness="{TemplateBinding BorderThickness}"
+						        BorderBrush="{TemplateBinding BorderBrush}"
+						        Padding="{TemplateBinding Padding}"
+						        SnapsToDevicePixels="true">
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							                  RecognizesAccessKey="False"
+							                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled"
+							         Value="false">
+								<Setter Property="Foreground"
+								        Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		
+		<DrawingImage x:Key="plusIcon">
+			<DrawingImage.Drawing>
+				<DrawingGroup>
+					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M94,44L56,44 56,6A6,6,0,0,0,44,6L44,44 6,44A6,6,0,0,0,6,56L44,56 44,94A6,6,0,0,0,56,94L56,56 94,56A6,6,0,0,0,94,44z" />
+				</DrawingGroup>
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="minusIcon">
+			<DrawingImage.Drawing>
+				<DrawingGroup> <!--ClipGeometry="M0,0 V100 H100 V0 H0 Z"-->
+					<GeometryDrawing Brush="{DynamicResource buttonColor}">
+						<GeometryDrawing.Geometry>
+							<RectangleGeometry RadiusX="6" RadiusY="6" Rect="44,0,12,100" Transform="6.12303176911189E-17,-1,1,6.12303176911189E-17,0,100" />
+						</GeometryDrawing.Geometry>
+					</GeometryDrawing>
+				</DrawingGroup>
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="pauseIcon">
+			<DrawingImage.Drawing>
+				<DrawingGroup ClipGeometry="M0,0 V100 H100 V0 H0 Z"> <!-- TODO: Check if needed "ClipGeometry" -->
+					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M19,21.84L19,78.16C19,80.28 21.69,82 25,82 28.31,82 31,80.28 31,78.16L31,21.84C31,19.72 28.31,18 25,18 21.69,18 19,19.72 19,21.84z" />
+					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M19,21.84L19,78.16C19,80.28 21.69,82 25,82 28.31,82 31,80.28 31,78.16L31,21.84C31,19.72 28.31,18 25,18 21.69,18 19,19.72 19,21.84z" />
+				</DrawingGroup>
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="closeIcon">
+			<DrawingImage.Drawing>
+				<DrawingGroup>
+					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M76.87,14.64L50,41.51 23.13,14.64A6,6,0,1,0,14.64,23.13L41.51,50 14.64,76.87A6,6,0,1,0,23.13,85.36L50,58.49 76.87,85.36A6,6,0,1,0,85.36,76.87L58.49,50 85.36,23.13A6,6,0,1,0,76.87,14.64z" />
+				</DrawingGroup>
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		<DrawingImage x:Key="playIcon">
+			<DrawingImage.Drawing>
+				<DrawingGroup>
+					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M87.38,44.92L23.49,2.33A6.1,6.1,0,0,0,14,7.41L14,92.59A6.1,6.1,0,0,0,23.49,97.67L87.38,55.08A6.11,6.11,0,0,0,87.38,44.92z" />
+				</DrawingGroup>
+			</DrawingImage.Drawing>
+		</DrawingImage>
+		
+		<local:BooleanToVisibilityConverter x:Key="BoolToVis"         True="Visible"   False="Collapsed" />
+		<local:BooleanToVisibilityConverter x:Key="InvertedBoolToVis" True="Collapsed" False="Visible"   />
+		
 	</Application.Resources>
 </Application>
 

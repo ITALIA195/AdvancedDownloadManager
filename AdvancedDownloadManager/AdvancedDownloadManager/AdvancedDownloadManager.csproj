@@ -50,7 +50,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="DownloadEntry.xaml">
+    <Page Include="Controls\DownloadEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -62,9 +62,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DownloadEntry.xaml.cs">
+    <Compile Include="ConsoleManager.cs" />
+    <Compile Include="Controls\DownloadEntry.xaml.cs">
       <DependentUpon>DownloadEntry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DownloadEntryViewModel.cs" />
+    <Compile Include="Converters.cs" />
+    <Compile Include="Downloader.cs" />
+    <Compile Include="Events\DownloadProgressChangedArgs.cs" />
+    <Compile Include="Events\DownloadStateChangedArgs.cs" />
     <Compile Include="FileProperties.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -72,6 +78,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -88,8 +95,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

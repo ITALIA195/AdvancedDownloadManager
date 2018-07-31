@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdvancedDownloadManager"
+        xmlns:controls="clr-namespace:AdvancedDownloadManager.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Width="600" Height="350" Background="{StaticResource windowBackgroundColor}">
 	<Grid>
@@ -12,52 +13,24 @@
 			<RowDefinition Height="*"></RowDefinition>
 		</Grid.RowDefinitions>
 
-		<Rectangle Fill="{StaticResource topRectangle}"></Rectangle>
+		<Rectangle Fill="{StaticResource topRectangle}" />
 		<Grid Grid.Row="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="50"></ColumnDefinition>
 				<ColumnDefinition Width="*"></ColumnDefinition>
 			</Grid.ColumnDefinitions>
 
-			<StackPanel Grid.Column="1" Margin="10 0 10 0" CanVerticallyScroll="True">
-				<StackPanel.Resources>
-					<Style TargetType="Grid">
-						<Setter Property="Margin" Value="0 10 0 0"></Setter>
-					</Style>
-				</StackPanel.Resources>
-
-				<!-- DownloadUri="http://www.masterinfernal.org/DDL/ANIME/Beatless/Beatless_Ep_01_SUB_ITA.mp4" -->
-				<!-- Path="D:\" -->
-				<local:DownloadEntry 
-					FileName="Beatless_Ep_01_SUB_ITA.mp4"
-					></local:DownloadEntry>
-				
-<!-- 				<Grid> -->
-<!-- 					<Rectangle Fill="{StaticResource downloadBackgroundColor}" Width="520" Height="80"></Rectangle> -->
-<!-- 					<Label Margin="15  5 0 0" FontSize="13" FontFamily="Segoe UI" Foreground="{StaticResource textColor}" FontWeight="Bold">Beatless_Ep_01_SUB_ITA.mp4</Label> -->
-<!-- 					<Label Margin="15 22 0 0" FontSize="12" FontFamily="Segoe UI" Foreground="{StaticResource textColor}">http://www.masterinfernal.org/DDL/ANIME/Beatless/Beatless_Ep_01_SUB_ITA.mp4</Label> -->
-<!-- 					<Label Margin="15 54 0 0" FontSize="12" FontFamily="Segoe UI" Foreground="{StaticResource linkColor}">Open in Explorer</Label> -->
-<!-- -->
-<!-- 					 -->
-<!-- 					<Viewbox Width="18" Height="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 10 10"> -->
-<!-- 						<Path Data="{StaticResource cancelButton}" Fill="{StaticResource buttonColor}"/> -->
-<!-- 					</Viewbox> -->
-<!-- ~1~					<Viewbox MouseDown="OnPauseButton" Width="18" Height="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 33 10">@1@ -->
-<!-- ~1~						<Path Data="{StaticResource playButton}" Fill="{StaticResource buttonColor}" Stretch="Fill"/>@1@ -->
-<!-- ~1~					</Viewbox>@1@ -->
-<!-- 				</Grid> -->
-			</StackPanel>
-			<!--			<ScrollViewer Grid.Column="1" Margin="10 10 10 10">-->
-			<!--				<Rectangle Height="80" Fill="Red"></Rectangle>-->
-			<!--				<Rectangle Height="80" Fill="Blue"></Rectangle>-->
-			<!--			</ScrollViewer>-->
+			<Rectangle Fill="{StaticResource leftBarBackgroundColor}"/>
+			
+			<ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+				<StackPanel Name="DownloadList" Margin="10 0 10 0">
+					<StackPanel.Resources>
+						<Style TargetType="{x:Type controls:DownloadEntry}">
+							<Setter Property="Margin" Value="0 10 0 0"></Setter>
+						</Style>
+					</StackPanel.Resources>
+				</StackPanel>
+			</ScrollViewer>
 		</Grid>
 	</Grid>
 </Window>
-
-
-
-
-
-
-
