@@ -5,13 +5,13 @@ namespace AdvancedDownloadManager.Controls
     public partial class DownloadEntry
     {
         //TODO: Remove code from this class
-        private readonly DownloadEntryViewModel viewModel;
+        private DownloadEntryViewModel viewModel => DataContext as DownloadEntryViewModel;
         
         public DownloadEntry(FileProperties file)
         {
             InitializeComponent();
             
-            DataContext = viewModel = new DownloadEntryViewModel(file);
+            DataContext = new DownloadEntryViewModel(file);
         }
 
         private void OnPauseButton(object sender, MouseButtonEventArgs e)

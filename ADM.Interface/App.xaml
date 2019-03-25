@@ -49,6 +49,11 @@
 				<Color R="0" G="255" B="0" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
+		<SolidColorBrush x:Key="pausedProgressBarColor">
+			<SolidColorBrush.Color>
+				<Color R="61" G="249" B="243" A="255"/>
+			</SolidColorBrush.Color>
+		</SolidColorBrush>
 		<SolidColorBrush x:Key="leftBarBackgroundColor">
 			<SolidColorBrush.Color>
 				<Color R="255" G="255" B="255" A="255"/>

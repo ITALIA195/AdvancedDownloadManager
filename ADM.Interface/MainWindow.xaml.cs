@@ -25,17 +25,29 @@ namespace AdvancedDownloadManager
 
         private void AddDownloadEntry()
         {
-            var entry = new DownloadEntry(
-                new FileProperties
-                {
-                    FileName = "5MB.zip",
-                    DownloadUri =
-                        "http://ipv4.download.thinkbroadband.com/5MB.zip",
-                    Path = "D:/"
-                });
-//            entry.OpenFile += OnOpenFile;
-//            entry.Pause += OnPause;
-            _downloadList.Children.Add(entry);
+//            for (int i = 4; i <= 13; i++) 
+//                _downloadList.Children.Add(
+//                    new DownloadEntry(
+//                        new FileProperties
+//                        {
+//                            FileName = $"MusaigenNoPhantomWorld_Ep_{i:00}_SUB_ITA",
+//                            DownloadUri =
+//                                $"http://www.unluckypeople.org/DDL/ANIME/MusaigenNoPhantomWorld/MusaigenNoPhantomWorld_Ep_{i:00}_SUB_ITA.mp4",
+//                            Path = @"D:\Animes\Musaigen No Phantom World\"
+//                        }
+//                    )
+//                );
+            _downloadList.Children.Add(
+                new DownloadEntry(
+                    new FileProperties
+                    {
+                        FileName = "File",
+                        DownloadUri =
+                            "http://ipv4.download.thinkbroadband.com/5MB.zip",
+                        Path = "D:/"
+                    }
+                )
+            );
         }
 
 //        private void OnOpenFile(object sender, RoutedEventArgs e)
