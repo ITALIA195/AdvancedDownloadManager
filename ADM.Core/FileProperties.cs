@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace AdvancedDownloadManager
+namespace ADM.Core
 {
     public struct FileProperties
     {

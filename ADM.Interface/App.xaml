@@ -1,60 +1,60 @@
-﻿<Application x:Class="AdvancedDownloadManager.App"
+﻿<Application x:Class="ADM.Interface.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:AdvancedDownloadManager"
+             xmlns:interface="clr-namespace:ADM.Interface"
              StartupUri="MainWindow.xaml">
 	<Application.Resources>
-		<SolidColorBrush x:Key="buttonColor">
+		<SolidColorBrush x:Key="ButtonColor">
 			<SolidColorBrush.Color>
 				<Color R="132" G="132" B="132" A="76"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="topRectangle">
+		<SolidColorBrush x:Key="TopRectangle">
 			<SolidColorBrush.Color>
 				<Color R="120" G="250" B="255" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="downloadBackgroundColor">
+		<SolidColorBrush x:Key="DownloadBackgroundColor">
 			<SolidColorBrush.Color>
 				<Color R="255" G="255" B="255" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="windowBackgroundColor">
+		<SolidColorBrush x:Key="WindowBackgroundColor">
 			<SolidColorBrush.Color>
 				<Color R="245" G="245" B="245" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="textColor">
+		<SolidColorBrush x:Key="TextColor">
 			<SolidColorBrush.Color>
 				<Color R="112" G="122" B="122" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="linkColor">
+		<SolidColorBrush x:Key="LinkColor">
 			<SolidColorBrush.Color>
 				<Color R="116" G="181" B="255" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="downloadInfo">
+		<SolidColorBrush x:Key="DownloadInfo">
 			<SolidColorBrush.Color>
 				<Color R="0" G="0" B="0" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="borderColor">
+		<SolidColorBrush x:Key="BorderColor">
 			<SolidColorBrush.Color>
 				<Color R="122" G="122" B="122" A="100"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="progressBarColor">
+		<SolidColorBrush x:Key="ProgressBarColor">
 			<SolidColorBrush.Color>
 				<Color R="0" G="255" B="0" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="pausedProgressBarColor">
+		<SolidColorBrush x:Key="PausedProgressBarColor">
 			<SolidColorBrush.Color>
 				<Color R="61" G="249" B="243" A="255"/>
 			</SolidColorBrush.Color>
 		</SolidColorBrush>
-		<SolidColorBrush x:Key="leftBarBackgroundColor">
+		<SolidColorBrush x:Key="LeftBarBackgroundColor">
 			<SolidColorBrush.Color>
 				<Color R="255" G="255" B="255" A="255"/>
 			</SolidColorBrush.Color>
@@ -84,13 +84,13 @@
 								</VisualStateGroup>
 							</VisualStateManager.VisualStateGroups>
 							<Border x:Name="PART_Track" CornerRadius="4" BorderThickness="1"
-									BorderBrush="{StaticResource borderColor}">
+									BorderBrush="{StaticResource BorderColor}">
 							</Border>
 						   <Border BorderThickness="1"
 								  x:Name="PART_Indicator"
 								  HorizontalAlignment="Left"
-								  Background="{StaticResource progressBarColor}"
-								  BorderBrush="{StaticResource progressBarColor}"
+								  Background="{StaticResource ProgressBarColor}"
+								  BorderBrush="{StaticResource ProgressBarColor}"
 								  Margin="0,0,0,0">
 								<Border.Style>
 									 <Style TargetType="Border">
@@ -108,7 +108,7 @@
 				</Setter.Value>
 			</Setter>
 			<Setter Property="Background" Value="Transparent" />
-			<Setter Property="Foreground" Value="{StaticResource borderColor}" />
+			<Setter Property="Foreground" Value="{StaticResource BorderColor}" />
 		</Style>
 		<Style x:Key="{x:Type Label}"
 		       TargetType="{x:Type Label}">
@@ -137,17 +137,17 @@
 			</Setter>
 		</Style>
 		
-		<DrawingImage x:Key="plusIcon">
+		<DrawingImage x:Key="PlusIcon">
 			<DrawingImage.Drawing>
 				<DrawingGroup>
-					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M94,44L56,44 56,6A6,6,0,0,0,44,6L44,44 6,44A6,6,0,0,0,6,56L44,56 44,94A6,6,0,0,0,56,94L56,56 94,56A6,6,0,0,0,94,44z" />
+					<GeometryDrawing Brush="{DynamicResource ButtonColor}" Geometry="F1 M100,100z M0,0z M94,44L56,44 56,6A6,6,0,0,0,44,6L44,44 6,44A6,6,0,0,0,6,56L44,56 44,94A6,6,0,0,0,56,94L56,56 94,56A6,6,0,0,0,94,44z" />
 				</DrawingGroup>
 			</DrawingImage.Drawing>
 		</DrawingImage>
-		<DrawingImage x:Key="minusIcon">
+		<DrawingImage x:Key="MinusIcon">
 			<DrawingImage.Drawing>
 				<DrawingGroup> <!--ClipGeometry="M0,0 V100 H100 V0 H0 Z"-->
-					<GeometryDrawing Brush="{DynamicResource buttonColor}">
+					<GeometryDrawing Brush="{DynamicResource ButtonColor}">
 						<GeometryDrawing.Geometry>
 							<RectangleGeometry RadiusX="6" RadiusY="6" Rect="44,0,12,100" Transform="6.12303176911189E-17,-1,1,6.12303176911189E-17,0,100" />
 						</GeometryDrawing.Geometry>
@@ -155,31 +155,31 @@
 				</DrawingGroup>
 			</DrawingImage.Drawing>
 		</DrawingImage>
-		<DrawingImage x:Key="pauseIcon">
+		<DrawingImage x:Key="PauseIcon">
 			<DrawingImage.Drawing>
 				<DrawingGroup ClipGeometry="M0,0 V100 H100 V0 H0 Z"> <!-- TODO: Check if needed "ClipGeometry" -->
-					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M19,21.84L19,78.16C19,80.28 21.69,82 25,82 28.31,82 31,80.28 31,78.16L31,21.84C31,19.72 28.31,18 25,18 21.69,18 19,19.72 19,21.84z" />
-					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M19,21.84L19,78.16C19,80.28 21.69,82 25,82 28.31,82 31,80.28 31,78.16L31,21.84C31,19.72 28.31,18 25,18 21.69,18 19,19.72 19,21.84z" />
+					<GeometryDrawing Brush="{DynamicResource ButtonColor}" Geometry="F1 M100,100z M0,0z M19,21.84L19,78.16C19,80.28 21.69,82 25,82 28.31,82 31,80.28 31,78.16L31,21.84C31,19.72 28.31,18 25,18 21.69,18 19,19.72 19,21.84z" />
+					<GeometryDrawing Brush="{DynamicResource ButtonColor}" Geometry="F1 M100,100z M0,0z M19,21.84L19,78.16C19,80.28 21.69,82 25,82 28.31,82 31,80.28 31,78.16L31,21.84C31,19.72 28.31,18 25,18 21.69,18 19,19.72 19,21.84z" />
 				</DrawingGroup>
 			</DrawingImage.Drawing>
 		</DrawingImage>
-		<DrawingImage x:Key="closeIcon">
+		<DrawingImage x:Key="CloseIcon">
 			<DrawingImage.Drawing>
 				<DrawingGroup>
-					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M76.87,14.64L50,41.51 23.13,14.64A6,6,0,1,0,14.64,23.13L41.51,50 14.64,76.87A6,6,0,1,0,23.13,85.36L50,58.49 76.87,85.36A6,6,0,1,0,85.36,76.87L58.49,50 85.36,23.13A6,6,0,1,0,76.87,14.64z" />
+					<GeometryDrawing Brush="{DynamicResource ButtonColor}" Geometry="F1 M100,100z M0,0z M76.87,14.64L50,41.51 23.13,14.64A6,6,0,1,0,14.64,23.13L41.51,50 14.64,76.87A6,6,0,1,0,23.13,85.36L50,58.49 76.87,85.36A6,6,0,1,0,85.36,76.87L58.49,50 85.36,23.13A6,6,0,1,0,76.87,14.64z" />
 				</DrawingGroup>
 			</DrawingImage.Drawing>
 		</DrawingImage>
-		<DrawingImage x:Key="playIcon">
+		<DrawingImage x:Key="PlayIcon">
 			<DrawingImage.Drawing>
 				<DrawingGroup>
-					<GeometryDrawing Brush="{DynamicResource buttonColor}" Geometry="F1 M100,100z M0,0z M87.38,44.92L23.49,2.33A6.1,6.1,0,0,0,14,7.41L14,92.59A6.1,6.1,0,0,0,23.49,97.67L87.38,55.08A6.11,6.11,0,0,0,87.38,44.92z" />
+					<GeometryDrawing Brush="{DynamicResource ButtonColor}" Geometry="F1 M100,100z M0,0z M87.38,44.92L23.49,2.33A6.1,6.1,0,0,0,14,7.41L14,92.59A6.1,6.1,0,0,0,23.49,97.67L87.38,55.08A6.11,6.11,0,0,0,87.38,44.92z" />
 				</DrawingGroup>
 			</DrawingImage.Drawing>
 		</DrawingImage>
 		
-		<local:BooleanToVisibilityConverter x:Key="BoolToVis"         True="Visible"   False="Collapsed" />
-		<local:BooleanToVisibilityConverter x:Key="InvertedBoolToVis" True="Collapsed" False="Visible"   />
+		<interface:BooleanToVisibilityConverter x:Key="BoolToVis"         True="Visible"   False="Collapsed" />
+		<interface:BooleanToVisibilityConverter x:Key="InvertedBoolToVis" True="Collapsed" False="Visible"   />
 		
 	</Application.Resources>
 </Application>

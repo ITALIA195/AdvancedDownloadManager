@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdvancedDownloadManager.Properties
+namespace ADM.Interface.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.

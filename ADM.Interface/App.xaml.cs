@@ -1,4 +1,4 @@
-﻿namespace AdvancedDownloadManager
+﻿namespace ADM.Interface
 {
     /// <summary>
     /// Interaction logic for App.xaml

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
+﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using AdvancedDownloadManager.Controls;
+using ADM.Core;
 
-namespace AdvancedDownloadManager
+namespace ADM.Interface
 {
-    public partial class MainWindow
+    public partial class MainWindow : Window
     {
         private StackPanel _downloadList;
         

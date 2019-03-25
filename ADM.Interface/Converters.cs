@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace AdvancedDownloadManager
+namespace ADM.Interface
 {
         // From https://stackoverflow.com/a/5182660
     public class BooleanConverter<T> : IValueConverter

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdvancedDownloadManager.Events
+namespace ADM.Core.Events
 {
     public class DownloadProgressChangedArgs : EventArgs
     {
